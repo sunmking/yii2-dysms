@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "saviorlv\\aliyun\\": "./src"
+            "saviorlv\\aliyun\\": "src/"
         }
     }
 }
