@@ -1,5 +1,5 @@
 <?php
-namespace savior\aliyun;
+namespace saviorlv\aliyun;
 ini_set("display_errors", "on");
 
 require_once dirname(__DIR__) . '/sdk/vendor/autoload.php';
@@ -107,8 +107,15 @@ class Sms extends Component
 
         // 打印请求结果
         // var_dump($acsResponse);
+        if(array_key_exists('result', $acsResponse) && $acsResponse['code']=='Ok'){
+            return json_encode([
+                'code' => 200,
+                'message' => '验证码发送成功'
+            ]);
+        }
+        return Utils::result($acsResponse);
 
-        return $acsResponse;
+        //return $acsResponse;
 
     }
 
