@@ -5,7 +5,7 @@
     "type": "library",
     "license": "Apache-2.0",
     "homepage": "https://www.aliyun.com/product/sms",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "saviorlv",
