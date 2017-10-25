@@ -2,8 +2,6 @@
 namespace saviorlv\aliyun;
 ini_set("display_errors", "on");
 
-require_once dirname(__DIR__) . '/sdk/vendor/autoload.php';
-
 use Aliyun\Core\Config;
 use Aliyun\Core\Profile\DefaultProfile;
 use Aliyun\Core\DefaultAcsClient;
@@ -32,10 +30,11 @@ class Sms extends Component
     const    $region = "cn-hangzhou";
     // 服务结点
     const    $endPointName = "cn-hangzhou";
-
+    // accessKeyId
     public $accessKeyId;
+    // accessKeySecret
     public $accessKeySecret;
-
+    // aceClient
     private $acsClient;
 
     /**
