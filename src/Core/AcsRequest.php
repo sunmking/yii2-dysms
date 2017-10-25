@@ -1,6 +1,6 @@
 <?php
 
-namespace Aliyun\Core;
+namespace saviorlv\aliyun\Core;
 
 abstract class AcsRequest
 {

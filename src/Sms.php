@@ -2,11 +2,12 @@
 namespace saviorlv\aliyun;
 ini_set("display_errors", "on");
 
-use Aliyun\Core\Config;
-use Aliyun\Core\Profile\DefaultProfile;
-use Aliyun\Core\DefaultAcsClient;
-use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
-use Aliyun\Api\Sms\Request\V20170525\QuerySendDetailsRequest;
+use saviorlv\aliyun\Core\Config;
+use saviorlv\aliyun\Core\Profile\DefaultProfile;
+use saviorlv\aliyun\Core\DefaultAcsClient;
+use saviorlv\aliyun\Api\Sms\Request\SendSmsRequest;
+use saviorlv\aliyun\Api\Sms\Request\QuerySendDetailsRequest;
+use SebastianBergmann\CodeCoverage\Util;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
@@ -23,13 +24,13 @@ Config::load();
 class Sms extends Component
 {
     // 短信API产品名
-    const    $product = "Dysmsapi";
+    private    $product = "Dysmsapi";
     // 短信API产品域名
-    const    $domain = "dysmsapi.aliyuncs.com";
+    private    $domain = "dysmsapi.aliyuncs.com";
     // 暂时不支持多Region
-    const    $region = "cn-hangzhou";
+    private    $region = "cn-hangzhou";
     // 服务结点
-    const    $endPointName = "cn-hangzhou";
+    private    $endPointName = "cn-hangzhou";
     // accessKeyId
     public $accessKeyId;
     // accessKeySecret
@@ -105,8 +106,8 @@ class Sms extends Component
         $acsResponse = $this->acsClient->getAcsResponse($request);
 
         // 打印请求结果
-        // var_dump($acsResponse);
-        if(array_key_exists('result', $acsResponse) && $acsResponse['code']=='Ok'){
+        $acsResponse = self::object_array($acsResponse);
+        if(array_key_exists('Message', $acsResponse) && $acsResponse['Code']=='Ok'){
             return json_encode([
                 'code' => 200,
                 'message' => '验证码发送成功'
@@ -157,4 +158,19 @@ class Sms extends Component
         return $acsResponse;
     }
 
+    /**
+     * 对象转数组
+     * @param $array
+     * @return array
+     */
+    public static function object_array($array) {
+        if(is_object($array)) {
+            $array = (array)$array;
+         } if(is_array($array)) {
+            foreach($array as $key=>$value) {
+                $array[$key] = self::object_array($value);
+            }
+        }
+        return $array;
+    }
 }

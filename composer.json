@@ -4,10 +4,11 @@
     "keywords": [ "aliyun", "SMS", "sdk" ],
     "type": "library",
     "license": "Apache-2.0",
+    "homepage": "https://www.aliyun.com/product/sms",
     "authors": [
         {
             "name": "saviorlv",
-            "email": "1042080686@qq.xom"
+            "homepage": "https://www.aliyun.com"
         }
     ],
     "require": {
@@ -15,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "saviorlv\\aliyun\\": "src"
+            "saviorlv\\aliyun\\": "src/"
         }
     }
 }

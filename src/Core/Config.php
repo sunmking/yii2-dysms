@@ -1,8 +1,8 @@
 <?php
 
-namespace Aliyun\Core;
+namespace saviorlv\aliyun\Core;
 
-use Aliyun\Core\Regions\EndpointConfig;
+use saviorlv\aliyun\Core\Regions\EndpointConfig;
 
 //config http proxy
 define('ENABLE_HTTP_PROXY', FALSE);

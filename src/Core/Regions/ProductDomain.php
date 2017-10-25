@@ -1,6 +1,6 @@
 <?php
 
-namespace Aliyun\Core\Regions;
+namespace saviorlv\aliyun\Core\Regions;
 
 class ProductDomain
 {

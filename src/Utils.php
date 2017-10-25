@@ -19,14 +19,16 @@ class Utils
             'message' => '发生未知错误'
         ];
         $code = 0;
-        if(array_key_exists('sub_code', $params)){
-            $code = $params->sub_code;
+        if(array_key_exists('Code', $params)){
+            $code = $params['Code'];
         }else{
-            $code = $params->code;
+            $code = $params['Code'];
         }
 
         if(array_key_exists($code, StateCode::CODE)){
             $res = StateCode::CODE[$code];
+        }else{
+            $res = ['code'=>$code,'message' =>$params['Message']];
         }
 
         return json_encode($res);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Aliyun\Core\Profile;
+namespace saviorlv\aliyun\Core\Profile;
 
-use Aliyun\Core\Auth\Credential;
-use Aliyun\Core\Auth\ShaHmac1Signer;
-use Aliyun\Core\Regions\ProductDomain;
-use Aliyun\Core\Regions\Endpoint;
-use Aliyun\Core\Regions\EndpointProvider;
+use saviorlv\aliyun\Core\Auth\Credential;
+use saviorlv\aliyun\Core\Auth\ShaHmac1Signer;
+use saviorlv\aliyun\Core\Regions\ProductDomain;
+use saviorlv\aliyun\Core\Regions\Endpoint;
+use saviorlv\aliyun\Core\Regions\EndpointProvider;
 
 class DefaultProfile implements IClientProfile
 {

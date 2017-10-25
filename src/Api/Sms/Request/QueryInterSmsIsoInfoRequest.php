@@ -1,8 +1,8 @@
 <?php
 
-namespace Aliyun\Api\Sms\Request;
+namespace saviorlv\aliyun\Api\Sms\Request;
 
-use Aliyun\Core\RpcAcsRequest;
+use saviorlv\aliyun\Core\RpcAcsRequest;
 
 class QueryInterSmsIsoInfoRequest extends RpcAcsRequest
 {

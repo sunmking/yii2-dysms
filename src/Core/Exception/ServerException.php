@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Aliyun\Core\Exception;
+namespace saviorlv\aliyun\Core\Exception;
 
 class ServerException extends ClientException
 {

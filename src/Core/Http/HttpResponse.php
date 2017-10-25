@@ -1,6 +1,6 @@
 <?php
 
-namespace Aliyun\Core\Http;
+namespace saviorlv\aliyun\Core\Http;
 
 class HttpResponse
 {

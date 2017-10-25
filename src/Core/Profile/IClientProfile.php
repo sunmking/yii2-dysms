@@ -1,6 +1,6 @@
 <?php
 
-namespace Aliyun\Core\Profile;
+namespace saviorlv\aliyun\Core\Profile;
 
 interface IClientProfile
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aliyun\Core\Auth;
+namespace saviorlv\aliyun\Core\Auth;
 
 interface ISigner
 {
