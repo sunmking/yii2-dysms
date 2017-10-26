@@ -106,7 +106,7 @@ class Sms extends Component
 
         // 打印请求结果
         $acsResponse = self::object_array($acsResponse);
-        if(array_key_exists('Message', $acsResponse) && $acsResponse['Code']=='Ok'){
+        if(array_key_exists('Message', $acsResponse) && $acsResponse['Code']=='OK'){
             return json_encode([
                 'code' => 200,
                 'message' => '验证码发送成功'
