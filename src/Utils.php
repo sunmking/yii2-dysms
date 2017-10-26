@@ -18,6 +18,7 @@ class Utils
             'code' => 404,
             'message' => '发生未知错误'
         ];
+        $msg = StateCode::getMsg();
         $code = 0;
         if(array_key_exists('Code', $params)){
             $code = $params['Code'];
@@ -25,8 +26,8 @@ class Utils
             $code = $params['Code'];
         }
 
-        if(array_key_exists($code, StateCode::CODE)){
-            $res = StateCode::CODE[$code];
+        if(array_key_exists($code, $msg)){
+            $res = $msg[$code];
         }else{
             $res = ['code'=>$code,'message' =>$params['Message']];
         }
