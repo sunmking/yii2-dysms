@@ -7,7 +7,6 @@ use saviorlv\aliyun\Core\Profile\DefaultProfile;
 use saviorlv\aliyun\Core\DefaultAcsClient;
 use saviorlv\aliyun\Api\Sms\Request\SendSmsRequest;
 use saviorlv\aliyun\Api\Sms\Request\QuerySendDetailsRequest;
-use SebastianBergmann\CodeCoverage\Util;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
@@ -16,10 +15,10 @@ Config::load();
 
 /**
  * 阿里大鱼SDK
- * User: chocoboxxf
+ * User: saviorlv
  * Date: 17/10/23
  * Time: 上午11:54
- * @property \Aliyun\Core\DefaultAcsClient acsClient
+ * @property \saviorlv\aliyun\Core\DefaultAcsClient acsClient
  */
 class Sms extends Component
 {
