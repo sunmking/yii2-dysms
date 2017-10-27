@@ -3,7 +3,7 @@
 ## 安装
 
 ```bash
-composer require "saviorlv/aliyun-dysms:dev-master"
+composer require "saviorlv/yii2-dysms:dev-master"
 ```
 
 > or添加下列代码在composer.json文件中并执行composer update 操作
@@ -11,7 +11,7 @@ composer require "saviorlv/aliyun-dysms:dev-master"
 ```bash
 {
     "require": {
-       "saviorlv/aliyun-dysms":"dev-master"
+       "saviorlv/yii2-dysms":"dev-master"
     }
 }
 ```
