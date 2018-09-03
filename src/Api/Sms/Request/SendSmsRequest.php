@@ -28,6 +28,8 @@ class SendSmsRequest extends RpcAcsRequest
 
 	private  $outId;
 
+    private  $smsUpExtendCode;
+
 	public function getTemplateCode() {
 		return $this->templateCode;
 	}
@@ -99,5 +101,13 @@ class SendSmsRequest extends RpcAcsRequest
 		$this->outId = $outId;
 		$this->queryParameters["OutId"]=$outId;
 	}
-	
+
+    public function getSmsUpExtendCode() {
+        return $this->smsUpExtendCode;
+    }
+
+    public function setSmsUpExtendCode($smsUpExtendCode) {
+        $this->smsUpExtendCode = $smsUpExtendCode;
+        $this->queryParameters["SmsUpExtendCode"]=$smsUpExtendCode;
+    }
 }

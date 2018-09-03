@@ -2,6 +2,7 @@
 namespace saviorlv\aliyun;
 ini_set("display_errors", "on");
 
+use saviorlv\aliyun\Api\Sms\Request\SendBatchSmsRequest;
 use saviorlv\aliyun\Core\Config;
 use saviorlv\aliyun\Core\Profile\DefaultProfile;
 use saviorlv\aliyun\Core\DefaultAcsClient;
@@ -114,6 +115,52 @@ class Sms extends Component
         }
         return Utils::result($acsResponse);
 
+        //return $acsResponse;
+    }
+
+    /**
+     * 批量发送短信
+     * @param $signName
+     * @param $templateCode
+     * @param $phoneNumbers
+     * @param null $templateParam
+     * @return false|string
+     */
+    public function sendBatchSms($signName, $templateCode, $phoneNumbers, $templateParam = null) {
+
+        // 初始化SendSmsRequest实例用于设置发送短信的参数
+        $request = new SendBatchSmsRequest();
+
+        //可选-启用https协议
+        //$request->setProtocol("https");
+
+        // 必填:待发送手机号。支持JSON格式的批量调用，批量上限为100个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式
+        $request->setPhoneNumberJson(json_encode($phoneNumbers, JSON_UNESCAPED_UNICODE));
+
+        // 必填:短信签名-支持不同的号码发送不同的短信签名
+        $request->setSignNameJson(json_encode($signName, JSON_UNESCAPED_UNICODE));
+
+        // 必填:短信模板-可在短信控制台中找到
+        $request->setTemplateCode($templateCode);
+
+        // 必填:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时,此处的值为
+        // 友情提示:如果JSON中需要带换行符,请参照标准的JSON协议对换行符的要求,比如短信内容中包含\r\n的情况在JSON中需要表示成\\r\\n,否则会导致JSON在服务端解析失败
+        $request->setTemplateParamJson(json_encode($templateParam, JSON_UNESCAPED_UNICODE));
+
+        // 可选-上行短信扩展码(扩展码字段控制在7位或以下，无特殊需求用户请忽略此字段)
+        // $request->setSmsUpExtendCodeJson("[\"90997\",\"90998\"]");
+
+        // 发起访问请求
+        $acsResponse = $this->acsClient->getAcsResponse($request);
+        // 打印请求结果
+        $acsResponse = self::object_array($acsResponse);
+        if(array_key_exists('Message', $acsResponse) && $acsResponse['Code']=='OK'){
+            return json_encode([
+                'code' => 200,
+                'message' => '验证码发送成功'
+            ]);
+        }
+        return Utils::result($acsResponse);
         //return $acsResponse;
     }
 

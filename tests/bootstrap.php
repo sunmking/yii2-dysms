@@ -5,4 +5,4 @@
  * Date: 2017/10/26
  * Time: 14:02
  */
-use saviorlv\aliyun\Sms;
+require_once './../vendor/autoload.php';

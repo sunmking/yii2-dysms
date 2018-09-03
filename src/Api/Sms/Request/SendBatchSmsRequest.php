@@ -17,35 +17,34 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 namespace saviorlv\aliyun\Api\Sms\Request;
 
 use saviorlv\aliyun\Core\RpcAcsRequest;
 
-class SendInterSmsRequest extends RpcAcsRequest
+class SendBatchSmsRequest extends RpcAcsRequest
 {
 	function  __construct()
 	{
-		parent::__construct("Dysmsapi", "2017-05-25", "SendInterSms");
+		parent::__construct("Dysmsapi", "2017-05-25", "SendBatchSms");
 		$this->setMethod("POST");
 	}
 
 	private  $templateCode;
 
-	private  $phoneNumbers;
-
-	private  $countryCode;
-
-	private  $signName;
+	private  $templateParamJson;
 
 	private  $resourceOwnerAccount;
 
-	private  $templateParam;
+	private  $smsUpExtendCodeJson;
 
 	private  $resourceOwnerId;
 
+	private  $signNameJson;
+
 	private  $ownerId;
 
-	private  $outId;
+	private  $phoneNumberJson;
 
 	public function getTemplateCode() {
 		return $this->templateCode;
@@ -56,31 +55,13 @@ class SendInterSmsRequest extends RpcAcsRequest
 		$this->queryParameters["TemplateCode"]=$templateCode;
 	}
 
-	public function getPhoneNumbers() {
-		return $this->phoneNumbers;
+	public function getTemplateParamJson() {
+		return $this->templateParamJson;
 	}
 
-	public function setPhoneNumbers($phoneNumbers) {
-		$this->phoneNumbers = $phoneNumbers;
-		$this->queryParameters["PhoneNumbers"]=$phoneNumbers;
-	}
-
-	public function getCountryCode() {
-		return $this->countryCode;
-	}
-
-	public function setCountryCode($countryCode) {
-		$this->countryCode = $countryCode;
-		$this->queryParameters["CountryCode"]=$countryCode;
-	}
-
-	public function getSignName() {
-		return $this->signName;
-	}
-
-	public function setSignName($signName) {
-		$this->signName = $signName;
-		$this->queryParameters["SignName"]=$signName;
+	public function setTemplateParamJson($templateParamJson) {
+		$this->templateParamJson = $templateParamJson;
+		$this->queryParameters["TemplateParamJson"]=$templateParamJson;
 	}
 
 	public function getResourceOwnerAccount() {
@@ -92,13 +73,13 @@ class SendInterSmsRequest extends RpcAcsRequest
 		$this->queryParameters["ResourceOwnerAccount"]=$resourceOwnerAccount;
 	}
 
-	public function getTemplateParam() {
-		return $this->templateParam;
+	public function getSmsUpExtendCodeJson() {
+		return $this->smsUpExtendCodeJson;
 	}
 
-	public function setTemplateParam($templateParam) {
-		$this->templateParam = $templateParam;
-		$this->queryParameters["TemplateParam"]=$templateParam;
+	public function setSmsUpExtendCodeJson($smsUpExtendCodeJson) {
+		$this->smsUpExtendCodeJson = $smsUpExtendCodeJson;
+		$this->queryParameters["SmsUpExtendCodeJson"]=$smsUpExtendCodeJson;
 	}
 
 	public function getResourceOwnerId() {
@@ -110,6 +91,15 @@ class SendInterSmsRequest extends RpcAcsRequest
 		$this->queryParameters["ResourceOwnerId"]=$resourceOwnerId;
 	}
 
+	public function getSignNameJson() {
+		return $this->signNameJson;
+	}
+
+	public function setSignNameJson($signNameJson) {
+		$this->signNameJson = $signNameJson;
+		$this->queryParameters["SignNameJson"]=$signNameJson;
+	}
+
 	public function getOwnerId() {
 		return $this->ownerId;
 	}
@@ -119,13 +109,13 @@ class SendInterSmsRequest extends RpcAcsRequest
 		$this->queryParameters["OwnerId"]=$ownerId;
 	}
 
-	public function getOutId() {
-		return $this->outId;
+	public function getPhoneNumberJson() {
+		return $this->phoneNumberJson;
 	}
 
-	public function setOutId($outId) {
-		$this->outId = $outId;
-		$this->queryParameters["OutId"]=$outId;
+	public function setPhoneNumberJson($phoneNumberJson) {
+		$this->phoneNumberJson = $phoneNumberJson;
+		$this->queryParameters["PhoneNumberJson"]=$phoneNumberJson;
 	}
 	
 }
